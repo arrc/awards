@@ -62,7 +62,7 @@
 	/* ==========================================================
 		setup
 	============================================================ */
-	angular.module('tbmp').factory('Auth',[
+	angular.module('awards').factory('Auth',[
 		'$q',
 		'$window',
 		'jwtHelper',

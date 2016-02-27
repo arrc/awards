@@ -37,7 +37,7 @@
 	/* ==========================================================
 		setup
 	============================================================ */
-	angular.module('tbmp').controller('HomeCtrl',[
+	angular.module('awards').controller('HomeCtrl',[
 		'$http',
     '$state',
     '$window',

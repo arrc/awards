@@ -16,7 +16,7 @@ expressJwt = require('express-jwt');
 /* ==========================================================
 	MONGOOSE
 ============================================================ */
-mongoose.connect('mongodb://localhost/tbmp', function(err){
+mongoose.connect('mongodb://localhost/awards', function(err){
   if(err) {
     console.error('\x1b[31m', 'Could not connect to MongoDB!');
     console.log(err);

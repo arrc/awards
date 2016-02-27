@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  var app = angular.module('tbmp',['ui.router','PubSub','angular-cache', 'angular-jwt', 'ngNotify', 'ngDialog', 'ngLodash']);
+  var app = angular.module('awards',['ui.router','PubSub','angular-cache', 'angular-jwt', 'ngNotify', 'ngDialog', 'ngLodash']);
   app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider

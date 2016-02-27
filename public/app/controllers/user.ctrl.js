@@ -14,7 +14,7 @@
 	/* ==========================================================
 		setup
 	============================================================ */
-	angular.module('tbmp').controller('UserCtrl',[
+	angular.module('awards').controller('UserCtrl',[
 		'$http',
     'User',
 		UserCtrl

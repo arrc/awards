@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 
-	angular.module('tbmp').factory('AuthInterceptor', function ($rootScope, $q, $window, Auth) {
+	angular.module('awards').factory('AuthInterceptor', function ($rootScope, $q, $window, Auth) {
 	  return {
 		request: function (config) {
 			var token = Auth.getToken();
@@ -25,7 +25,7 @@
 	/* ==========================================================
 		setup
 	============================================================ */
-	angular.module('tbmp').config(['$httpProvider',
+	angular.module('awards').config(['$httpProvider',
 		function($httpProvider) {
 			$httpProvider.interceptors.push('AuthInterceptor');
 		}
