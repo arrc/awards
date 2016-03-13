@@ -23,7 +23,10 @@ exports.distinctYearForAwardName = function(req, res){
 };
 
 exports.awardsPolls = function(req, res){
-
+  Test.find({ name: "oscar", year: "2001"}).exec(function(err, docs){
+    if(err) res.json({error: err});
+    res.json({data: docs});
+  });
 };
 
 exports.awardNamesAndYears = function(req, res){

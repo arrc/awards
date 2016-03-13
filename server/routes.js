@@ -13,6 +13,7 @@ module.exports = function(app){
 	app.route('/test').get(test.distinctAwardName);
 	app.route('/year').get(test.distinctYearForAwardName);
 	app.route('/awards').get(test.awardNamesAndYears);
+	app.route('/polls').get(test.awardsPolls);
 
 	// 'USER'
 	app.route('/login').post(user.login);
