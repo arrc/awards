@@ -5,7 +5,6 @@ let Test = require('../models/test.model.js');
 let _ = require('lodash');
 let chance = require('chance').Chance();
 let async = require('async');
-let helpers = require('../helpers');
 
 exports.distinctAwardName = function(req, res){
   Test.distinct("name", function(err, docs){
@@ -54,10 +53,4 @@ exports.awardNamesAndYears = function(req, res){
     if(err) return res.status(400).json({error: err, message: 'Error occurred.'});
   });
 
-};
-
-exports.create = function(req, res){
-  helpers.createRecord(req, function(docs){
-    res.status(200).json({data: docs, message: 'Record Created successfully.'});
-  });
 };

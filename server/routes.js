@@ -9,7 +9,6 @@ module.exports = function(app){
 	app.route('/').get(main.index);
 
 	// 'TEST' ----------------------------
-	app.route('/test').post(test.create);
 	app.route('/test').get(test.distinctAwardName);
 	app.route('/year').get(test.distinctYearForAwardName);
 	app.route('/awards').get(test.awardNamesAndYears);
