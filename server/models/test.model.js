@@ -5,7 +5,7 @@ let TestSchema =  mongoose.Schema({
   name: String,
   year: Number,
   category: String,
-  nominees: [{name: String}],
+  nominees: { type: Array, default: []},
   winner: String
 });
 

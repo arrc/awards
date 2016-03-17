@@ -58,7 +58,10 @@ var cheerioize = function(localData){
 
 
 fsp.readFile('88th academy.html', 'utf8').then(function(data){
-  let localData;
-  localData = data;
-  cheerioize(localData);
+  cheerioize(data);
 });
+
+// Loading from the web
+// request('https://en.wikipedia.org/wiki/88th_Academy_Awards', function(error, response, body) {
+//   cheerioize(body);
+// });
