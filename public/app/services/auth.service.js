@@ -2,7 +2,7 @@
 	'use strict';
 
 	var Auth = function($q, $window, jwtHelper){
-		var tokenKey = 'auth-token';
+		var tokenKey = 'awards-auth-token';
 		var storage = $window.localStorage;
 		var decodedUser;
 		var cachedToken;

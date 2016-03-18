@@ -1,0 +1,18 @@
+<section class="row" ng-controller="EditorCtrl as vm">
+  <div class="large-9 large-centered columns">
+    <h3>Editor</h3>
+
+    <form ng-submit="vm.editor()">
+      <div class="row">
+        <div class="large-6 columns">
+          <input type="text" ng-model="vm.editorForm.name" placeholder="Award name">
+        </div>
+        <div class="large-6 columns">
+          <input type="text" ng-model="vm.editorForm.year" placeholder="Award year">
+        </div>
+      </div>
+      <textarea ng-model="vm.editorForm.text" rows="68" cols="40"></textarea>
+      <input type="submit" value="Send" class="button small expand secondary">
+    </form>
+  </div>
+</section>

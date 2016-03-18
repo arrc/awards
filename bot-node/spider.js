@@ -32,33 +32,22 @@ var cheerioize = function(localData){
         if(_.includes(["Best Picture", "Best Visual Effects", "Best Art Direction", "Best Animated Feature"], category)){
           let nomineesArray = [];
           let winner = $(this).find('ul li b i').text();
-          nomineesArray.push(winner);
+          nomineesArray.push({name: winner, count: 0});
           let nominees = $(this).find('ul li ul li > i');
           nominees.each(function(){
-            nomineesArray.push($(this).text());
-          });
-          logMe(category, winner, nomineesArray);
-        }
-
-        if(_.includes(["Best Adapted Screenplay"], category)){
-          let nomineesArray = [];
-          let winner = $(this).find('ul li b').text();
-          nomineesArray.push(winner);
-          let nominees = $(this).find('ul li ul li');
-          nominees.each(function(){
-            nomineesArray.push($(this).text());
+            nomineesArray.push({name: $(this).text(), count: 0});
           });
           logMe(category, winner, nomineesArray);
         }
 
         if(_.includes(["Best Director", "Best Actor", "Best Actress",
-        "Best Supporting Actor", "Best Supporting Actress", "Best Original Screenplay", "Best Original Score"], category)) {
+        "Best Supporting Actor", "Best Supporting Actress", "Best Original Screenplay", "Best Original Score", "Best Adapted Screenplay"], category)) {
           let nomineesArray = [];
           let winner = $(this).find('ul li b').text();
-          nomineesArray.push(winner);
+          nomineesArray.push({name: winner, count: 0});
           let nominees = $(this).find('ul li ul li');
           nominees.each(function(){
-            nomineesArray.push($(this).text());
+            nomineesArray.push({name: $(this).text(), count: 0});
           });
           logMe(category, winner, nomineesArray);
         }
