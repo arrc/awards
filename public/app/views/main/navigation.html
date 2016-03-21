@@ -12,7 +12,7 @@
       <!-- Right Nav Section -->
       <ul class="right">
         <li><a ng-hide="vm.isAuth" ui-sref="login">Login</a></li>
-        <li><a ng-show="vm.isAuth" ui-sref="editor">Editor</a></li>
+        <li><a ui-sref="editor">Editor</a></li>
         <li><a ng-show="vm.isAuth" ui-sref="profile">profile</a></li>
         <li><a ng-show="vm.isAuth" ng-click="vm.logout()">Logout</a></li>
       </ul>

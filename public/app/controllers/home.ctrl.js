@@ -3,7 +3,7 @@
 	var HomeCtrl = function($http, $state, $window, User, Auth, ngNotify){
 		var _this = this;
     _this.isAuth = Auth.isAuthenticated();
-    _this.isAdmin = Auth.user().isAdmin;
+    // _this.isAdmin = Auth.user().isAdmin;
 
     // login
     _this.login = function(){

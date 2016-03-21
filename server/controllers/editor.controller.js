@@ -1,7 +1,8 @@
 'use strict';
 
 let clientScripts = require('../config/scripts.js');
-let Test = require('../models/test.model.js');
+let Award = require('../models/award.model.js');
+let Grammy = require('../models/grammy.model.js');
 let _ = require('lodash');
 let chance = require('chance').Chance();
 let async = require('async');
@@ -43,6 +44,10 @@ exports.editor = function(req, res){
     finalDataArray.push(categoryObject);
   });
 
-  console.log(finalDataArray);
-  res.status(200).json({data: finalDataArray, message: "done!"});
+  process.nextTick(function(){
+    Award.create(finalDataArray, function(err, docs){
+      if (err) return res.status(400).json({ error: err, message: "Not saved in db." });
+      res.status(200).json({data: docs, message: "Saved in db."});
+    });
+  });
 };

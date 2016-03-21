@@ -2,19 +2,13 @@
 
 module.exports = function(app){
 	var main = require('./controllers/main.controller.js');
-	var test = require('./controllers/test.controller.js');
+	var award = require('./controllers/award.controller.js');
 	var user = require('./controllers/user.controller.js');
 	var editor = require('./controllers/editor.controller.js');
 	var oscar = require('./helpers/oscar-scraper.js');
 
 	// 'CORE' ----------------------------
 	app.route('/').get(main.index);
-
-	// 'TEST' ----------------------------
-	app.route('/test').get(test.distinctAwardName);
-	app.route('/year').get(test.distinctYearForAwardName);
-	app.route('/awards').get(test.awardNamesAndYears);
-	app.route('/polls').get(test.awardsPolls);
 
 	// 'EDITOR' ----------------------------
 	app.route('/editor').post(editor.editor);
@@ -25,5 +19,9 @@ module.exports = function(app){
 	app.route('/signup').post(user.signup);
 	app.route('/api/profile').get(user.profile);
 
+	// 'AWARD' ----------------------------
+	app.route('/api/awards/ceremonies').get(award.ceremonies);
+	app.route('/api/awards/nominations').get(award.nominations);
+	// app.route('/api/awards/vote').put(award.vote);
 
 };

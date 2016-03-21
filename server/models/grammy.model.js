@@ -1,7 +1,7 @@
 'use strict';
 let mongoose = require('mongoose');
 
-let TestSchema =  mongoose.Schema({
+let GrammySchema =  mongoose.Schema({
   name: String,
   year: Number,
   category: String,
@@ -9,8 +9,8 @@ let TestSchema =  mongoose.Schema({
   winner: String
 });
 
-TestSchema.options.toJSON = {
+GrammySchema.options.toJSON = {
   virtuals : true
 };
 
-module.exports = mongoose.model('Test', TestSchema);
+module.exports = mongoose.model('Grammy', GrammySchema);
