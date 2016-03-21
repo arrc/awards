@@ -22,6 +22,6 @@ module.exports = function(app){
 	// 'AWARD' ----------------------------
 	app.route('/api/awards/ceremonies').get(award.ceremonies);
 	app.route('/api/awards/nominations').get(award.nominations);
-	// app.route('/api/awards/vote').put(award.vote);
+	app.route('/api/awards/vote').put(award.vote);
 
 };

@@ -10,6 +10,7 @@ let UserSchema =  mongoose.Schema({
   lastName: String,
   email: String,
   gender: String,
+  votes: {type: Array, default: []},
   isActive: {type: Boolean, default: false},
   isAdmin: {type: Boolean, default: false},
 });
