@@ -30,7 +30,7 @@ exports.distinctYearForAwardName = function(req, res){
 exports.nominations = function(req, res){
   var q = req.query;
 
-  Award.find({ year: q.year}).exec(function(err, docs){
+  Award.find({year: q.year}).exec(function(err, docs){
     if(err) res.json({error: err});
     res.json({data: docs});
   });
@@ -64,29 +64,48 @@ exports.ceremonies = function(req, res){
 
 exports.vote = function(req, res){
   let nominationsId = req.query.nominations_id;
-  let nomineeId = req.query.nominee_id;
+  let oldNomineeId = req.query.old_nominee_id;
+  let newNomineeId = req.query.nominee_id;
 
-  let nominationsDoc, userDoc;
+  let nominations, user;
   async.series({
     nominees: function(callback) {
       Award.findById(nominationsId).exec(function(err, nominationsDoc){
-        if (err) callback(err);
-        nominationsDoc = nominationsDoc;
+        if (err) return callback(err);
+        nominations = nominationsDoc;
         callback(null);
       });
     },
     user: function(callback){
       User.findById(req.user._id).exec(function(err, userDoc){
-        if (err) callback(err);
-        userDoc = userDoc;
+        if (err) return callback(err);
+        user = userDoc;
+        console.log(user);
+
         callback(null);
       });
     },
     check: function(callback){
-      if(_.includes(userDoc.votes, nomineeId)) {
-        // 
+      console.log(user);
+      if(_.includes(user.votes, oldNomineeId)) {
+        //
+        console.log("Hi");
       } else {
+        user.votes.addToSet(newNomineeId);
+        user.save(function(err, doc, updated){
+          console.log(updated);
+          if (err || !updated) return callback(err);
 
+          let nominee = nominations.nominees.id(newNomineeId);
+          console.log("Nominee", nominee);
+          nominee.count += 1;
+          nominations.save(function(err, doc, updated){
+            console.log('nominations doc updated \t',updated);
+            if (err || !updated) return callback(err);
+            console.log("Nominee doc \t ", doc);
+            callback(null, doc);
+          });
+        });
       }
     }
   }, function(err, results){
